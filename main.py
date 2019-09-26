@@ -45,6 +45,10 @@ def list_windows():
 
     return windows
 
+def log(msg):
+    with open("~/ulauncher_log.txt","a") as f:
+        f.write(msg+"\n")
+
 
 def get_process_name(pid):
     """Find out process name, given its' ID
@@ -103,8 +107,14 @@ class KeywordQueryEventListener(EventListener):
         arg = event.get_argument()
         if arg is not None:
             # filter by title or process name
+            log("argument: "arg)
+            for window in windows:
+                log(window.get_name())
             windows = filter(lambda x: arg in x.get_name() or arg in x.get_description(None),
                              windows)
+        # else :
+        #     windows = filter(lambda x: arg in x.get_name() or arg in x.get_description(None),
+        #                      windows)
 
         return RenderResultListAction(windows)
 
