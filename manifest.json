@@ -1,6 +1,6 @@
 {
     "required_api_version": "^2.0.0",
-    "name": "Window select",
+    "name": "Window select_custom",
     "description": "Select from a list of open windows",
     "developer_name": "Paulius Sukys",
     "icon": "images/icon.png",
